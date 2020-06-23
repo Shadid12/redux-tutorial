@@ -1,9 +1,12 @@
 import React from 'react';
+import TaskList from './TaskList';
+import Taskform from './Taskform';
 
 function App() {
   return (
     <div className="App">
-      Hello worlds
+      <Taskform />
+      <TaskList />
     </div>
   );
 }

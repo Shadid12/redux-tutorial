@@ -2,43 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import store from "./store"; // import the store we created
-
-// Subscribe to the store to listen to all changes in store state
-
-const unsubscribe = store.subscribe(() => {
-  console.log("---Listening -->>", store.getState());
-});
-
-
-// dispatch actions
-store.dispatch({
-  type: 'ADD_NEW_TASK',
-  payload: {
-    name: "some notification"
-  }
-});
-
-unsubscribe();
-
-store.dispatch({
-  type: 'ADD_NEW_TASK',
-  payload: {
-    name: "some notification"
-  }
-});
-
-
-store.dispatch({
-  type: 'REMOVE_TASK',
-  payload: {
-    id: 1
-  }
-});
-
+import { Provider } from "react-redux"; // import the provider component from library
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* Wrap the App component with provider component 
+        and pass our store as a property */
+    }
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
