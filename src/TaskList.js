@@ -1,16 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import {removeTask} from './actions'
 
 function TaskList () {
     const state = useSelector(state => state);
     const dispatch = useDispatch()
     const removeItem = id => {
-        dispatch({
-            type: 'REMOVE_TASK',
-            payload: {
-                id
-            }
-        })
+        dispatch(removeTask(id))
     }
     return (
         state.map(item => (

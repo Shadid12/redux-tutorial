@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
+import {addNewTask} from './actions'
 
 function Taskform () {
     const [desc, setDesc] = React.useState('');
@@ -9,12 +10,7 @@ function Taskform () {
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch({
-            type: "ADD_NEW_TASK",
-            payload: {
-                desc
-            }
-        });
+        dispatch(addNewTask(desc));
         setDesc('')
     }
 

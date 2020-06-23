@@ -1,8 +1,10 @@
+import * as actionType from './actionTypes'
+
 let idPrevItem = -1;
 
 function reducer(state = [], action) {
     switch(action.type) {
-        case 'ADD_NEW_TASK':
+        case actionType.ADD_NEW_TASK:
             return [
                 ...state,
                 {
@@ -10,7 +12,7 @@ function reducer(state = [], action) {
                     desc: action.payload.desc
                 }
             ]
-        case 'REMOVE_TASK':
+        case actionType.REMOVE_TASK:
             return state.filter(n => n.id !== action.payload.id);
         default: 
             return state;
